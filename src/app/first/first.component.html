@@ -1,0 +1,40 @@
+<div class= "button-holder">
+    <button mat-raised-button color = "primary" routerLink="/makanan">
+        <mat-icon>add_box</mat-icon> Add your food order!
+    </button>
+</div>
+<div>
+    <span style=font-size:34px; [matBadge] ="notification" matBadgeSize = "large"
+    matBadgeColor = "primary" matBadgeOverlap = "false">Orders</span>
+</div>
+<div class="table">
+    <table mat-table [dataSource]="makanan" class="mat-elevation-z8">
+      <ng-container matColumnDef="namaMakanan">
+        <th mat-header-cell *matHeaderCellDef>Food Name</th>
+        <td mat-cell *matCellDef="let makanan">{{ makanan.namaMakanan }}</td>
+      </ng-container>
+      <ng-container matColumnDef="jenisMakanan">
+        <th mat-header-cell *matHeaderCellDef>Food Type</th>
+        <td mat-cell *matCellDef="let makanan">{{ makanan.jenisMakanan }}</td>
+      </ng-container>
+      <ng-container matColumnDef="harga">
+        <th mat-header-cell *matHeaderCellDef>Food Cost(Rp)</th>
+        <td mat-cell *matCellDef="let makanan">{{ makanan.harga }}</td>
+      </ng-container>
+      <ng-container matColumnDef="durasiMasak">
+        <th mat-header-cell *matHeaderCellDef>Food Duration(minutes)</th>
+        <td mat-cell *matCellDef="let makanan">{{ makanan.durasiMasak }}</td>
+      </ng-container>
+      <ng-container matColumnDef="asalMakanan">
+        <th mat-header-cell *matHeaderCellDef>Food Origins</th>
+        <td mat-cell *matCellDef="let makanan">{{ makanan.asalMakanan }}</td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayKolom"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayKolom"
+        [routerLink]="'/makanan/' + row._id"
+      ></tr>
+    </table>
+  </div>
+  

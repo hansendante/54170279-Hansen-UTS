@@ -1,0 +1,81 @@
+<div *ngIf="error">Orders with ID {{ this.id }} is not available</div>
+
+<form>
+  <h1 style = color:white;>Orders</h1>
+  <mat-form-field style = color:white; appearance="outline" hideRequiredMarker>
+    <mat-label>Food Name</mat-label>
+    <input
+      matInput
+      placeholder="type the food name"
+      name="namaMakanan"
+      id="namaMakanan"
+      [(ngModel)]="makanan.namaMakanan"
+      required
+    />
+  </mat-form-field>
+  <br />
+  <mat-form-field style = color:white; appearance="outline" hideRequiredMarker>
+    <mat-label>Food Type</mat-label>
+    <input
+      matInput
+      placeholder="type the food type(appeziter,main course, dessert)"
+      name="jenisMakanan"
+      id="jenisMakanan"
+      [(ngModel)]="makanan.jenisMakanan"
+      required
+    />
+  </mat-form-field>
+  <br />
+  <mat-form-field style = color:white; appearance="outline" hideRequiredMarker>
+    <mat-label>Food Costs</mat-label>
+    <input
+      matInput
+      placeholder="type the food cost"
+      name="harga"
+      id="harga"
+      [(ngModel)]="makanan.harga"
+      required
+    />
+  </mat-form-field>
+  <br />
+  <mat-form-field style = color:white; appearance="outline" hideRequiredMarker>
+    <mat-label>Food Duration</mat-label>
+    <input
+      matInput
+      placeholder="type the food duration to make"
+      name="durasiMasak"
+      id="durasiMasak"
+      [(ngModel)]="makanan.durasiMasak"
+      required
+    />
+  </mat-form-field>
+  <br />
+  <mat-form-field style = color:white; appearance="outline" hideRequiredMarker>
+    <mat-label>Food Origins</mat-label>
+    <input
+      matInput
+      placeholder="type the food origins(Indonesia, America, etc)"
+      name="asalMakanan"
+      id="asalMakanan"
+      [(ngModel)]="makanan.asalMakanan"
+      required
+    />
+  </mat-form-field>
+  <br />
+  
+  <div class="buttons">
+    <div *ngIf="update">
+      <button mat-raised-button color="warn" (click)="deleteMakan()">
+        Delete
+      </button>
+      <button mat-raised-button color="primary" (click)="updateMakan()">
+        Update
+      </button>
+    </div>
+    <div *ngIf="!update">
+      <button mat-raised-button (click)="postMakan()" color="primary">
+        Post
+      </button>
+    </div>
+  </div>
+</form>
